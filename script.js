@@ -15,3 +15,14 @@ function parseResponse(response) {
 8. Set the image element's `.textContent` property to the `pokemonData` object's `.name` attribute
 9. If you do it correctly, you should see a pokemon's name and image on the screen!
 */
+fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur")
+.then(parseResponse)
+.then(showPokemon)
+
+function showPokemon(pokemonData){
+  const pokeImg = document.querySelector("#pokemon-image")
+  pokeImg.src = pokemonData
+
+  const pokeName = document.querySelector("#pokemon-name")
+  pokeName.textContent = pokemonData.name
+}
